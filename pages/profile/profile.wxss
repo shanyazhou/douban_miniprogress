@@ -1,0 +1,162 @@
+.header {
+    display: flex;
+    height: 400rpx;
+    position: relative;
+    /* 主轴上的对齐方式 */
+    justify-content: center;
+    /* 交叉轴上的对齐方式 */
+    align-items: center;
+}
+
+.header .headerBgImage {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+.header .loginBtn {
+    width: 300rpx;
+    height: 70rpx;
+    line-height: 70rpx;
+    text-align: center;
+    color: #42bd55;
+    background-color: #FFF;
+    border-radius: 35rpx;
+}
+
+.sectionView{
+    margin-top: 20rpx;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    height: 60rpx;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.sectionView .titleView {
+    font-size: 40rpx;
+    font-weight: bold;
+    height: 100%;
+    line-height: 100%;
+    display: flex;
+    text-align: center;
+    align-items: center;
+}
+
+.sectionView .rightView {
+    width: auto;
+    font-size: 30rpx;
+    height: 100%;
+    line-height: 100%;
+    text-align: center;
+    align-items: center;
+    display: flex;
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.arrow {
+    width: 18rpx;
+    height: 18rpx;
+    border-top: gray solid 2rpx;
+    border-right: gray solid 2rpx;
+    rotate: 45deg;
+    margin-left: 15rpx;
+}
+
+.items .item {
+    display: flex;
+    margin-left: 30rpx;
+    margin-right: 30rpx;
+    margin-top: 30rpx;
+    height: 160rpx;
+    align-items: center;
+}
+
+.items .item .icon {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.item .contentView {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    margin-left: 25rpx;
+    width: 100%;
+}
+
+.item .contentView .leftView {
+
+}
+
+.item .contentView .leftView .bottomView{
+    display: flex;
+    color: rgba(0, 0, 0, 0.5);
+    font-size: 40rpx;
+    align-items: flex-end;
+    margin-top: 10rpx;
+}
+
+.item .contentView .leftView .bottomView .bottomRightView{
+    display: flex;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 30rpx;
+    margin-bottom: 7rpx;
+    margin-left: 25rpx;
+}
+
+.item .contentView .rightView{
+    display: flex;
+    color: rgba(0, 0, 0, 0.9);
+    font-size: 30rpx;
+    margin-bottom: 7rpx;
+    margin-left: 25rpx;
+    align-items: center;
+}
+
+.rightView .grayView {
+    color: rgba(0, 0, 0, 0.3);
+    font-size: 25rpx;
+}
+
+.rightView .beginView {
+    display: flex;
+    align-items: center;
+}
+
+.rightView .beginBtn {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 5rpx 10rpx;
+    border-radius: 5rpx;
+    text-align: center;
+    height: 40rpx;
+    line-height: 40rpx;
+    margin-left: 30rpx;
+    color: #4a4a4a
+}
+
+.item .contentView .lineView{
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.1);
+    height: 1rpx;
+    width: 100%;
+    z-index: 3;
+    margin-top: 150rpx;
+}
+
+.item:last-of-type .lineView {
+    visibility: hidden;
+}
+
+.version {
+    font-size: 25rpx;
+    color: gainsboro;
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 30rpx;
+}
+

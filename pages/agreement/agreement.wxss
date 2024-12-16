@@ -1,0 +1,7 @@
+/* pages/agreement/agreement.wxss */
+
+
+.agreement{
+    display: flex;
+    background-color: #fff;
+}
