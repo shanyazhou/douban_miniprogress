@@ -1,55 +1,56 @@
-<scroll-view scroll-y="true" style="height: 100vh;">
-    <view class="header">
-        <image class="headerBgImage" src="/assets/imgs/loginBgImage@2x.png"/>
-        <view class="loginBtn">登录</view>
-    </view>
-
-    <view class="middle">
-        <view class="sectionView">
-            <view class="titleView">我的书音影</view>
-            <view class="rightView">
-                登录查看
-                <view class="arrow"></view>
-            </view>
+<view class="contentView">
+    <view>
+        <view class="header">
+            <image class="headerBgImage" src="/assets/imgs/loginBgImage@2x.png"/>
+            <view class="loginBtn">登录</view>
         </view>
 
-        <!-- 直接将数据传过来 -->
-        <!-- <view>
-            我的名字是： {{ name }}，我的年龄是：{{ age }}
-        </view> -->
-          
-        <view class="items">
-            <view class="item" wx:for="{{ items }}">
-                <image class="icon" src= "{{ item.icon }}"/>
-                <view class="contentView">
-                    <view class="leftView">
-                        <view class="topView">{{ item.title }}</view>
+        <view class="middle">
+            <view class="sectionView">
+                <view class="titleView">我的书音影</view>
+                <view class="rightView">
+                    登录查看
+                    <view class="arrow"></view>
+                </view>
+            </view>
 
-                        <view class="bottomView">{{ item.count }}
-                            <view class="bottomRightView">{{ item.seeType }}</view>
+            <!-- 直接将数据传过来 -->
+            <!-- <view>
+                我的名字是： {{ name }}，我的年龄是：{{ age }}
+            </view> -->
+            
+            <view class="items">
+                <view class="item" wx:for="{{ items }}">
+                    <image class="icon" src= "{{ item.icon }}"/>
+                    <view class="contentView">
+                        <view class="leftView">
+                            <view class="topView">{{ item.title }}</view>
+
+                            <view class="bottomView">{{ item.count }}
+                                <view class="bottomRightView">{{ item.seeType }}</view>
+                            </view>
+                            
                         </view>
                         
+                        <view class="rightView" bind:tap="beginBtnClick" data-index="{{ index }}">
+                            <text class="grayView">{{ item.mark }}</text>
+                            <view class="beginView">
+                                <view class="beginBtn">立即开启</view>
+                                <view class="arrow"></view>
+                            </view>
+                            
+                        </view>
+
+                        <view class="lineView"></view>
                     </view>
                     
-                    <view class="rightView" bind:tap="beginBtnClick" data-index="{{ index }}">
-                        <text >{{ index }}</text>
-                        <text class="grayView">{{ item.mark }}</text>
-                        <view class="beginView">
-                            <view class="beginBtn">立即开启</view>
-                            <view class="arrow"></view>
-                        </view>
-                        
-                    </view>
-
-                    <view class="lineView"></view>
                 </view>
-                
             </view>
         </view>
     </view>
-
+    
     <view class="version">
         版本1.0.0
     </view>
-</scroll-view>
+</view>
   
