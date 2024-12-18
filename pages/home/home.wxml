@@ -1,0 +1,26 @@
+
+<view class="homeContainer">
+
+    <view class="searchGreenBgView">
+        <view class="searchView">
+            <image class="searchImage" src="/assets/imgs/search.png">
+            </image>
+            搜索
+        </view>
+    </view>
+    
+    <view class="movieContainerView">
+        <view class="section">
+            影院热映
+
+            <view class="right">
+                查看更多
+                <image class="arrow" src="/assets/imgs/arrow_green.png">
+                </image>
+            </view>
+        </view>
+    </view>
+
+    
+</view>
+ 

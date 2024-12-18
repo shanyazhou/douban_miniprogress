@@ -1,0 +1,66 @@
+/* pages/movies/movies.wxss */
+
+.homeContainer {
+    display: flex;  
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.homeContainer .searchGreenBgView {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-content: end;
+    background-color: #42bd55;
+    width: 100%;
+    height: 100rpx;
+    margin-bottom: 20rpx;
+}
+
+.homeContainer .searchGreenBgView .searchView {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border-radius: 8rpx;
+    width: 100%;
+    margin: 20rpx;
+}
+
+.homeContainer .searchGreenBgView .searchView .searchImage{
+    width: 30rpx;
+    height: 30rpx;
+}
+
+.homeContainer .movieContainerView {
+    display: flex;  
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    background-color: #42bd55;
+}
+
+.homeContainer .movieContainerView .section {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    /* background-color: antiquewhite; */
+}
+
+.section .right {
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+    color: #42bd55;
+    background-color: aquamarine;
+}
+
+.section .right .arrow{
+    width: 30rpx;
+    height: 30rpx;
+    margin-left: 5rpx;
+}

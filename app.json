@@ -1,9 +1,9 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/profile/profile",
     "pages/login/login",
     "pages/agreement/agreement"
-    
   ],
   "window": {
     "navigationStyle": "default",
