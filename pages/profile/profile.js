@@ -110,5 +110,17 @@ Page({
    */
   onShareAppMessage() {
 
+  },
+
+  login() {
+    console.log("login");
+    wx.navigateTo({
+      url: '/pages/login/login',
+      success: (result) => {
+        
+      },
+      fail: () => {},
+      complete: () => {}
+    });
   }
 })

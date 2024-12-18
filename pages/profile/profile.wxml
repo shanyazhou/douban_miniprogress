@@ -2,13 +2,15 @@
     <view>
         <view class="header">
             <image class="headerBgImage" src="/assets/imgs/loginBgImage@2x.png"/>
-            <view class="loginBtn">登录</view>
+            <view class="loginBtn"  bind:tap="login">
+                登录
+            </view>
         </view>
 
         <view class="middle">
             <view class="sectionView">
                 <view class="titleView">我的书音影</view>
-                <view class="rightView">
+                <view class="rightView" bind:tap="login">
                     登录查看
                     <view class="arrow"></view>
                 </view>
