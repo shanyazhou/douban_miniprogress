@@ -39,7 +39,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     width: 100%;
-    background-color: #42bd55;
+    padding: 0 15rpx;
 }
 
 .homeContainer .movieContainerView .section {
@@ -47,8 +47,8 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    width: 100%;
-    /* background-color: antiquewhite; */
+    width: calc(100% - 30rpx);
+    margin-bottom: 20rpx;
 }
 
 .section .right {
@@ -56,11 +56,27 @@
     align-items: center;
     font-size: 30rpx;
     color: #42bd55;
-    background-color: aquamarine;
 }
 
 .section .right .arrow{
     width: 30rpx;
     height: 30rpx;
     margin-left: 5rpx;
+}
+
+.items .item {
+    display: flex;
+    flex-direction: column;
+    font-size: 30rpx;
+}
+
+.items .item .picture{
+    width: 180rpx;
+    height: 220rpx;
+    border-radius: 10rpx;
+}
+
+.items .item .stars .star{
+    width: 30rpx;
+    height: 30rpx;
 }

@@ -5,6 +5,9 @@
     "pages/login/login",
     "pages/agreement/agreement"
   ],
+  "requiredPrivateInfos": [
+    "chooseLocation"
+  ],
   "window": {
     "navigationStyle": "default",
     "navigationBarTextStyle": "black",

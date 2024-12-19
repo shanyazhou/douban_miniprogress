@@ -12,7 +12,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+    wx.getLocation({
+      type: 'wgs84',
+      
+      altitude: false,
+      success: (result) => {
+        console.log(result);
+      },
+      fail: (error) => {
+        console.log(error);
+      },
+      complete: () => {}
+    });
+      
   },
 
   /**
@@ -63,4 +75,6 @@ Page({
   onShareAppMessage() {
 
   }
+
+  
 })

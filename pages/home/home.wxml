@@ -19,6 +19,20 @@
                 </image>
             </view>
         </view>
+
+        <view class="items">
+            <view class="item">
+                <image class="picture" src="/assets/imgs/loginBgImage@2x.png"/>
+                我和我的祖国
+                <view class="stars">
+                    <image class="star" src="/assets/imgs/星星2.png"/>
+                    <image class="star" src="/assets/imgs/星星2.png"/>
+                    <image class="star" src="/assets/imgs/星星2.png"/>
+                    <image class="star" src="/assets/imgs/星星3.png"/>
+                    <image class="star" src="/assets/imgs/星星1.png"/>
+                </view>
+            </view>
+        </view>
     </view>
 
     
