@@ -5,7 +5,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    longitude: "",
+    latitude: "",
+    city: "",
+    address: ""
+  },
 
+
+  getLocation2() {
   },
 
   /**
@@ -18,6 +25,34 @@ Page({
       altitude: false,
       success: (result) => {
         console.log(result);
+        // this.setData({
+        //   longitude: result.longitude,
+        //   latitude: result.latitude
+        // });
+
+        this.data.longitude = result.longitude;
+        this.data.latitude = result.latitude;
+        this.setData(this.data)
+
+        wx.request({
+          url: 'https://restapi.amap.com/v3/geocode/regeo?',
+          data: {
+            key: "8f59962e6c9c8d61bf7c86af814ce33b",
+            location: result.longitude + "," + result.latitude
+          },
+          header: {'content-type':'application/json'},
+          method: 'GET',
+          dataType: 'json',
+          responseType: 'text',
+          success: (result) => {
+            console.log(result);
+            this.data.city = result.data.regeocode.addressComponent.city;
+            this.data.address = result.data.regeocode.formatted_address;
+            this.setData(this.data)
+          },
+          fail: () => {},
+          complete: () => {}
+        });
       },
       fail: (error) => {
         console.log(error);
@@ -75,6 +110,5 @@ Page({
   onShareAppMessage() {
 
   }
-
   
 })

@@ -33,6 +33,12 @@
                 </view>
             </view>
         </view>
+
+        <text >
+            我的经纬度是：经度：{{ longitude }} 维度：{{ latitude }}
+            我的城市是：{{ city }}
+            我的地址是：{{ address }}
+        </text>
     </view>
 
     
