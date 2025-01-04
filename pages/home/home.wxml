@@ -11,8 +11,7 @@
     
     <view class="movieContainerView">
         <view class="section">
-            影院热映
-
+          <view class="sectionTitle">想看的电影</view>
             <view class="right">
                 查看更多
                 <image class="arrow" src="/assets/imgs/arrow_green.png">
@@ -21,16 +20,56 @@
         </view>
 
         <view class="items">
-            <view class="item">
-                <image class="picture" src="/assets/imgs/loginBgImage@2x.png"/>
-                我和我的祖国
-                <view class="stars">
-                    <image class="star" src="/assets/imgs/星星2.png"/>
-                    <image class="star" src="/assets/imgs/星星2.png"/>
-                    <image class="star" src="/assets/imgs/星星2.png"/>
-                    <image class="star" src="/assets/imgs/星星3.png"/>
-                    <image class="star" src="/assets/imgs/星星1.png"/>
-                </view>
+            <view wx:for="{{ moviesWantToWatch }}" class="item" wx:for-item="item">
+                <image class="picture" src="{{ item.item.cover_image_url }}"/>
+                <view class="title">{{ item.item.title }}</view>
+                <block wx:if="{{ item.item.rating > 0 }}"> 
+                  <view class="stars">
+                    
+                    <image class="star" wx:for="{{ item.stars.on }}" src="/assets/imgs/星星2.png"/>
+                    <image class="star" wx:if="{{ item.stars.half }}" src="/assets/imgs/星星3.png"/>
+                    <image class="star" wx:for="{{ item.stars.off }}" src="/assets/imgs/星星1.png"/>
+
+                    <view class="scoreTitle">
+                      {{item.item.rating}}
+                    </view>
+                  </view>
+                </block>
+                <block wx:else>
+                  暂无分数
+                </block>
+            </view>
+        </view>
+
+        <view class="section">
+          <view class="sectionTitle">看过的电影</view>
+            <view class="right">
+                查看更多
+                <image class="arrow" src="/assets/imgs/arrow_green.png">
+                </image>
+            </view>
+        </view>
+
+        <view class="items">
+            <view wx:for="{{ moviesHavedWatch }}" class="item" wx:for-item="item">
+                <image class="picture" src="{{ item.item.cover_image_url }}"/>
+                <view class="title">{{ item.item.title }}</view>
+
+                <block wx:if="{{ item.item.rating > 0 }}"> 
+                  <view class="stars">
+                    
+                    <image class="star" wx:for="{{ item.stars.on }}" src="/assets/imgs/星星2.png"/>
+                    <image class="star" wx:if="{{ item.stars.half }}" src="/assets/imgs/星星3.png"/>
+                    <image class="star" wx:for="{{ item.stars.off }}" src="/assets/imgs/星星1.png"/>
+
+                    <view class="scoreTitle">
+                      {{item.item.rating}}
+                    </view>
+                  </view>
+                </block>
+                <block wx:else>
+                  暂无分数
+                </block>
             </view>
         </view>
 

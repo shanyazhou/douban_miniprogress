@@ -8,7 +8,9 @@ Page({
     longitude: "",
     latitude: "",
     city: "",
-    address: ""
+    address: "",
+    moviesWantToWatch: [],
+    moviesHavedWatch: []
   },
 
 
@@ -19,18 +21,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    // wx.showToast({
-    //   title: '获取城市失败',
-    //   image: "/assets/imgs/error.png",
-    // })
     // 调用自己的loadCity
-    // this.loadCity((city) => {
-    //   console.log('获取的城市信息123：'+ city)
-    //   this.loadData(city)
-    // })
+    this.loadCity((city) => {
+      console.log('获取的城市信息123：'+ city)
+      this.loadData(city)
+    })
 
     this.requetMoveListWantToWatch()
-    
+    this.requetMoveListHavedWatch()
   },
 
   /**
@@ -103,8 +101,8 @@ Page({
           url: 'https://restapi.amap.com/v3/geocode/regeo?',
           data: {
             key: "8f59962e6c9c8d61bf7c86af814ce33b",
-            //location: result.longitude + "," + result.latitude
-            location: `${result.longitude},${result.latitude}`
+            location: result.longitude + "," + result.latitude
+            // location: `${result.longitude},${result.latitude}`
           },
           header: {'content-type':'application/json'},
           method: 'GET',
@@ -165,7 +163,39 @@ Page({
         'Authorization': 'Bearer TjCZoxryvf4DxbL9nl4RLQLnsPK23b7us69gjdo9216-OjQdQWnBJbJuJw'
       },
       success: (result) => {
-        console.log(result.data);
+        console.log(result);
+        let moviesWantToWatch = result.data.data;
+        for (let index = 0; index < moviesWantToWatch.length; index++ ) {
+          this.updateMovie(moviesWantToWatch[index])
+        }
+        this.data.moviesWantToWatch = moviesWantToWatch
+        this.setData(this.data)
+      },
+      fail: (error) => {
+        console.log(error.errMsg);
+      }
+    });
+  },
+
+  /// 看过的电影列表
+  requetMoveListHavedWatch() {
+    wx.request({
+      url: 'https://neodb.social/api/me/shelf/complete',
+      data: {
+        page: 1
+      },
+      method: 'GET',
+      header: {
+        'Authorization': 'Bearer TjCZoxryvf4DxbL9nl4RLQLnsPK23b7us69gjdo9216-OjQdQWnBJbJuJw'
+      },
+      success: (result) => {
+        console.log(result);
+        let moviesHavedWatch = result.data.data;
+        for (let index = 0; index < moviesHavedWatch.length; index++ ) {
+          this.updateMovie(moviesHavedWatch[index])
+        }
+        this.data.moviesHavedWatch = moviesHavedWatch
+        this.setData(this.data)
       },
       fail: (error) => {
         console.log(error.errMsg);
@@ -173,6 +203,19 @@ Page({
     });
     
   },
+
+  /// 将获取到的电影数据进行加工
+  updateMovie(movie) {
+    let rating = movie.item.rating / 2
+    if (rating == 0) return
+    movie.stars = {}
+    movie.stars.on = parseInt(rating * 10 / 10)
+    movie.stars.half = (rating - movie.stars.on) > 0
+    movie.stars.off = parseInt(5 - movie.stars.on - (movie.stars.half == true ? 1 : 0))
+
+    console.log(movie)
+  },
+
 
   /// 关于我
   requetAboutMe() {
