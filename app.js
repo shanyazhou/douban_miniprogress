@@ -34,6 +34,11 @@ App({
         duration: duration
       })
     }
+
+    wx.db.url = function url(url) {
+      return `https://neodb.social/api/${url}`
+    }
+
   },
   globalData: {
     userInfo: null

@@ -9,8 +9,24 @@ Page({
     latitude: "",
     city: "",
     address: "",
-    moviesWantToWatch: [],
-    moviesHavedWatch: []
+    allMovies: [
+      {
+        title: "想看的电影",
+        url: "me/shelf/wishlist",
+        movies: []
+      },
+      {
+        title: "在看的电影",
+        url: "me/shelf/progress",
+        movies: []
+      },
+      {
+        title: "看过的电影",
+        url: "me/shelf/complete",
+        movies: []
+      }
+
+    ]
   },
 
 
@@ -27,8 +43,9 @@ Page({
       this.loadData(city)
     })
 
-    this.requetMoveListWantToWatch()
-    this.requetMoveListHavedWatch()
+    this.requetMoveList(0)
+    this.requetMoveList(1)
+    this.requetMoveList(2)
   },
 
   /**
@@ -151,10 +168,10 @@ Page({
     })
   },
 
-  /// 想看的电影列表
-  requetMoveListWantToWatch() {
+  requetMoveList(index) {
+    const obj = this.data.allMovies[index]
     wx.request({
-      url: 'https://neodb.social/api/me/shelf/wishlist',
+      url: wx.db.url(obj.url),
       data: {
         page: 1
       },
@@ -168,40 +185,13 @@ Page({
         for (let index = 0; index < moviesWantToWatch.length; index++ ) {
           this.updateMovie(moviesWantToWatch[index])
         }
-        this.data.moviesWantToWatch = moviesWantToWatch
+        this.data.allMovies[index].movies = moviesWantToWatch
         this.setData(this.data)
       },
       fail: (error) => {
         console.log(error.errMsg);
       }
     });
-  },
-
-  /// 看过的电影列表
-  requetMoveListHavedWatch() {
-    wx.request({
-      url: 'https://neodb.social/api/me/shelf/complete',
-      data: {
-        page: 1
-      },
-      method: 'GET',
-      header: {
-        'Authorization': 'Bearer TjCZoxryvf4DxbL9nl4RLQLnsPK23b7us69gjdo9216-OjQdQWnBJbJuJw'
-      },
-      success: (result) => {
-        console.log(result);
-        let moviesHavedWatch = result.data.data;
-        for (let index = 0; index < moviesHavedWatch.length; index++ ) {
-          this.updateMovie(moviesHavedWatch[index])
-        }
-        this.data.moviesHavedWatch = moviesHavedWatch
-        this.setData(this.data)
-      },
-      fail: (error) => {
-        console.log(error.errMsg);
-      }
-    });
-    
   },
 
   /// 将获取到的电影数据进行加工
