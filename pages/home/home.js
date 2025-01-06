@@ -43,57 +43,12 @@ Page({
       this.loadData(city)
     })
 
+
+    this.requestLocaMoviesData()
+
     this.requetMoveList(0)
     this.requetMoveList(1)
     this.requetMoveList(2)
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide() {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload() {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom() {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage() {
 
   },
 
@@ -169,9 +124,8 @@ Page({
   },
 
   requetMoveList(index) {
-    const obj = this.data.allMovies[index]
     wx.request({
-      url: wx.db.url(obj.url),
+      url: wx.db.url(this.data.allMovies[index].url),
       data: {
         page: 1
       },
@@ -182,16 +136,46 @@ Page({
       success: (result) => {
         console.log(result);
         let moviesWantToWatch = result.data.data;
+        const obj = this.data.allMovies[index]
         for (let index = 0; index < moviesWantToWatch.length; index++ ) {
           this.updateMovie(moviesWantToWatch[index])
         }
-        this.data.allMovies[index].movies = moviesWantToWatch
+        obj.movies = moviesWantToWatch
         this.setData(this.data)
+
+        // 缓存数据
+        wx.setStorage({
+          key: obj.title,
+          data: obj.movies,
+          success: (result) => {
+            console.log( "234"+ result)
+          },
+          fail: (error) => {
+            console.log(error)
+          },
+          complete: () => {}
+        });
+          
       },
       fail: (error) => {
         console.log(error.errMsg);
       }
     });
+  },
+
+  // 获取之前的缓存数据
+  requestLocaMoviesData(){
+    for (let index = 0; index < this.data.allMovies.length; index++) {
+
+      let obj = this.data.allMovies[index]
+      obj.movies = wx.getStorage({
+        key: obj.title,
+        success:  (result) => {
+            console.log('123' + result)
+        },
+      }) || []
+    }
+    this.setData(this.data)
   },
 
   /// 将获取到的电影数据进行加工

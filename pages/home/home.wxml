@@ -9,7 +9,7 @@
         </view>
     </view>
     
-    <view wx:for="{{ allMovies }}" wx:for-item="moviesSection" class="movieContainerView">
+    <view wx:for="{{ allMovies }}" wx:key="unique" wx:for-item="moviesSection" class="movieContainerView">
         <view class="section">
           <view class="sectionTitle"> {{moviesSection.title}} </view>
             <view class="right">
@@ -20,15 +20,15 @@
         </view>
 
         <view class="items">
-            <view wx:for="{{ moviesSection.movies }}" class="item" wx:for-item="item">
+            <view wx:for="{{ moviesSection.movies }}" wx:key="unique" wx:for-item="item" class="item">
                 <image class="picture" src="{{ item.item.cover_image_url }}"/>
                 <view class="title">{{ item.item.title }}</view>
                 <block wx:if="{{ item.item.rating > 0 }}"> 
                   <view class="stars">
                     
-                    <image class="star" wx:for="{{ item.stars.on }}" src="/assets/imgs/星星2.png"/>
-                    <image class="star" wx:if="{{ item.stars.half }}" src="/assets/imgs/星星3.png"/>
-                    <image class="star" wx:for="{{ item.stars.off }}" src="/assets/imgs/星星1.png"/>
+                    <image wx:for="{{ item.stars.on }}" wx:key="unique" class="star" src="/assets/imgs/星星2.png"/>
+                    <image wx:if="{{ item.stars.half }}" class="star" src="/assets/imgs/星星3.png"/>
+                    <image wx:for="{{ item.stars.off }}" wx:key="unique" class="star" src="/assets/imgs/星星1.png"/>
 
                     <view class="scoreTitle">
                       {{item.item.rating}}
