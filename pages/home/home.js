@@ -46,9 +46,9 @@ Page({
 
     this.requestLocaMoviesData()
 
-    this.requetMoveList(0)
-    this.requetMoveList(1)
-    this.requetMoveList(2)
+    // this.requetMoveList(0)
+    // this.requetMoveList(1)
+    // this.requetMoveList(2)
 
   },
 
@@ -167,15 +167,29 @@ Page({
   requestLocaMoviesData(){
     for (let index = 0; index < this.data.allMovies.length; index++) {
 
+      /// 异步方法获取并赋值
       let obj = this.data.allMovies[index]
-      obj.movies = wx.getStorage({
+      wx.getStorage({
         key: obj.title,
         success:  (result) => {
-            console.log('123' + result)
+            obj.movies = result.data
+            // console.log('123' + result)
+            this.setData(this.data)
         },
       }) || []
+
+      // 使用同步方法获取缓存
+      // const movies = wx.getStorageSync(obj.title)
+      // if (movies) {
+      //     obj.movies = movies
+      //     console.log('获取缓存成功：', obj.title, movies)
+      // } else {
+      //     console.log('暂无缓存数据：', obj.title)
+      //     obj.movies = []
+      // }
+      // this.setData(this.data)
     }
-    this.setData(this.data)
+    
   },
 
   /// 将获取到的电影数据进行加工
