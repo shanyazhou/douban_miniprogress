@@ -12,7 +12,7 @@
     <view wx:for="{{ allMovies }}" wx:key="unique" wx:for-item="moviesSection" class="movieContainerView">
         <view class="section">
           <view class="sectionTitle"> {{moviesSection.title}} </view>
-            <view class="right">
+            <view class="right" bind:tap="seeMoreMoviesListClick" data-index="{{index}}" >
                 查看更多
                 <image class="arrow" src="/assets/imgs/arrow_green.png">
                 </image> 

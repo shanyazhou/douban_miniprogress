@@ -29,10 +29,6 @@ Page({
     ]
   },
 
-
-  getLocation2() {
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
@@ -291,7 +287,22 @@ Page({
 // created_at: 1735796108
 // scope: "read write"
 // token_type: "Bearer"
+  },
+
+  seeMoreMoviesListClick(res) {
+    console.log(res)
+    const index = res.currentTarget.dataset.index
+    const title = this.data.allMovies[index].title
+    const url = this.data.allMovies[index].url
+    wx.navigateTo({
+      url: `/pages/moviesList/moviesList?title=${ title }&url=${ url }`,//注意是``而不是''
+      success: (result) => {
+        console.log(result)
+      },
+      fail: (res) => {
+        console.log(res)
+      },
+      complete: (res) => {},
+    })
   }
-
-
 })

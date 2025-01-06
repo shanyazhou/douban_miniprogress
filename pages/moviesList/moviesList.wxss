@@ -1,0 +1,46 @@
+
+.item {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.items .item {
+    display: inline-flex;
+    flex-direction: column;
+    font-size: 30rpx;
+    margin-left: 35rpx;
+    margin-right: 35rpx;
+    margin-bottom: 50rpx;
+    width: 180rpx;
+}
+
+.items .item .title{
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis; 
+  text-align: center;
+}
+
+.items .item .picture{
+    width: 180rpx;
+    height: 260rpx;
+    border-radius: 10rpx;
+}
+
+.items .item .stars{
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* 上下居中*/
+  justify-content: center; /*左右居中*/
+}
+
+.items .item .stars .star{
+    width: 25rpx;
+    height: 25rpx;
+    margin-right: 5rpx;
+}
+
+.items .item .stars .scoreTitle{
+  font-size: small;
+}
