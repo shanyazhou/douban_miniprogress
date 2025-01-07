@@ -1,0 +1,35 @@
+
+.item {
+  font-size: 30rpx;
+  width: 180rpx;
+}
+
+.item .title{
+overflow: hidden;
+white-space: nowrap;
+text-overflow: ellipsis; 
+text-align: center;
+}
+
+.item .picture{
+  width: 180rpx;
+  height: 260rpx;
+  border-radius: 10rpx;
+}
+
+.item .stars{
+display: flex;
+flex-direction: row;
+align-items: center; /* 上下居中*/
+justify-content: center; /*左右居中*/
+}
+
+.item .stars .star{
+  width: 25rpx;
+  height: 25rpx;
+  margin-right: 5rpx;
+}
+
+.item .stars .scoreTitle{
+font-size: small;
+}

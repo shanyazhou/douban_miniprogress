@@ -1,4 +1,6 @@
 {
-  "usingComponents": {},
+  "usingComponents": {
+    "movie-item": "/components/movie-item/movie-item"
+  },
   "navigationBarTitleText": "首页"
 }
