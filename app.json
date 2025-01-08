@@ -42,7 +42,7 @@
     "getLocation"
   ],
   "window": {
-    "navigationStyle": "default",
+    "navigationStyle": "custom",
     "navigationBarTextStyle": "black",
     "navigationBarBackgroundColor": "#FFFFFF"
   },

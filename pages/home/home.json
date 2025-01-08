@@ -1,6 +1,7 @@
 {
   "usingComponents": {
-    "movie-item": "/components/movie-item/movie-item"
+    "movie-item": "/components/movie-item/movie-item",
+    "nav-bar": "/components/nav-bar/nav-bar"
   },
   "navigationBarTitleText": "首页",
   "navigationBarBackgroundColor": "#42bd55" 

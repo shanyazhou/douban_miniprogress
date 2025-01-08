@@ -7,6 +7,10 @@
     align-items: flex-start;
 }
 
+.nav-bar {
+  width: 100%;
+}
+
 .homeContainer .searchGreenBgView {
     display: flex;
     flex-direction: row;
