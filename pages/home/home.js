@@ -40,12 +40,11 @@ Page({
     })
 
 
-    this.requestLocaMoviesData()
+    // this.requestLocaMoviesData()
 
-    // this.requetMoveList(0)
-    // this.requetMoveList(1)
-    // this.requetMoveList(2)
-
+    this.requetMoveList(0)
+    this.requetMoveList(1)
+    this.requetMoveList(2)
   },
 
   // 加载城市信息
