@@ -1,6 +1,12 @@
 
 <view class="homeContainer">
-    <nav-bar class="nav-bar" title="首页"></nav-bar>
+    <nav-bar class="nav-bar" 
+      title="首页"
+      titleColor="#ffffff"
+      backgroundColor="#42bd55"
+      back="false"
+      home="false"
+      ></nav-bar>
     <view class="searchGreenBgView">
         <view class="searchView">
             <image class="searchImage" src="/assets/imgs/search.png">

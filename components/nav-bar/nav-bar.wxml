@@ -1,12 +1,12 @@
 <view class="container">
-  <view class="status-bar"></view>
+  <view class="status-bar" style="{{ statusBarStyle }}"></view>
 
-  <view class="nav-bar">
+  <view class="nav-bar" style="{{ navBarStyle }}">
     <view class="title">
       {{ title }}
     </view>
-    <image class="nav-back" src="/assets/imgs/nav_back.png" mode="aspectFill"/>
-    <image class="nav-home" src="/assets/imgs/nav_home.png" mode="aspectFit"/>
+    <image class="nav-back" src="/assets/imgs/nav_back.png" mode="aspectFill" wx:if="{{ back == 'true' }}" bind:tap="backClick"/>
+    <image class="nav-home" src="/assets/imgs/nav_home.png" mode="aspectFit" wx:if="{{ home == 'true' }}" bind:tap="homeClick"/>
   
   </view>
 </view>

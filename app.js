@@ -39,6 +39,14 @@ App({
       return `https://neodb.social/api/${url}`
     }
 
+    // 获取系统信息
+    const info = wx.getSystemInfoSync()
+    wx.db.statusBarHeight = info.statusBarHeight;
+    if (info.platform == 'android') {
+      wx.db.statusBarHeight = 48;
+    }else {
+      wx.db.statusBarHeight = 44;
+    }
   },
   globalData: {
     userInfo: null
