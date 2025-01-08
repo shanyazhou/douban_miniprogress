@@ -5,7 +5,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    movies: []
+    movies: [],
+    title: ""
   },
 
   /**
@@ -13,10 +14,11 @@ Page({
    */
   onLoad(obj) {
     /// 设置标题
-    wx.setNavigationBarTitle({
-      title: obj.title,
-    })
+    // wx.setNavigationBarTitle({
+    //   title: obj.title,
+    // })
 
+    this.data.title = obj.title
     // 使用同步方法获取缓存
     const movies = wx.getStorageSync(obj.title)
     if (movies) {

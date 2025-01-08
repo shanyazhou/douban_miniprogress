@@ -5,7 +5,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    
+    movie: {
+      type: Object
+    }
   },
 
   /**
@@ -15,9 +17,8 @@ Page({
     const movie = JSON.parse(decodeURIComponent(options.movie));
     // const movie = JSON.parse(options.movie)//不适合直接用于 URL，因为 JSON 字符串可能包含特殊字符（如 {, }, :, , 等），这些字符在 URL 中可能会导致解析错误。
     console.log(movie)
-    wx.setNavigationBarTitle({
-      title: movie.item.title,
-    })
+    this.data.movie = movie
+    this.setData(this.data)
   },
 
   /**

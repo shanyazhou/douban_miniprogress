@@ -1,8 +1,11 @@
 <!--pages/login/login.wxml-->
 <!-- H5开发中，都是div，而微信开发中，都是view（这个比较好） -->
-<view class="container">
-    <nav-bar class="nav-bar" 
+
+<nav-bar class="nav-bar" 
       title="登录"></nav-bar>
+
+<view class="container">
+    
     <image class="logo" src="/assets/imgs/douban_logo.jpeg" />
     
     <view class="wechat login_btn" bind:tap="wechatLogin">微信登录</view>

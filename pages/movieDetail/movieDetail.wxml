@@ -1,2 +1,9 @@
-<!--pages/movieDetail/movieDetail.wxml-->
-<text>pages/movieDetail/movieDetail.wxml</text>
+<nav-bar class="nav-bar" 
+  title="{{ movie.item.title }}">
+</nav-bar>
+
+<view class="contain">
+
+  <image src="{{ movie.item.cover_image_url }}" mode="" class="image" />
+</view>
+      

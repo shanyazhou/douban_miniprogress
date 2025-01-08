@@ -1,5 +1,9 @@
 /* components/nav-bar/nav-bar.wxss */
 
+.container {
+  width: 100%;
+}
+
 .status-bar {
   width: 100%;
 }
@@ -9,11 +13,10 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  background-color: yellow;
+  width: 100%;
 } 
 
 .nav-bar .title {
-  /* width: 100%; */
   text-align: center;
   font-weight: bolder;
   font-size: 40rpx;
@@ -27,7 +30,6 @@
   top: 10rpx;
   width: 35rpx;
   height: 35rpx;
-  background-color: red;
 }
 
 .nav-home {

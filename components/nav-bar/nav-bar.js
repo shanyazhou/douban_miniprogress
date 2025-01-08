@@ -14,7 +14,7 @@ Component({
     },
     backgroundColor: {
       type: String,
-      value: "#FFFFFF"
+      // value: "#FFFFFF"
     },
     back: {
       type: String,
