@@ -15,26 +15,26 @@
     width: 180rpx;
 }
 
-.items .item .title{
+/* .items .item .title{
   width: 180rpx;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis; 
   text-align: center;
-  white-space: nowrap;/*不换行*/
+  white-space: nowrap;
 }
 
 .items .item .picture{
     width: 180rpx;
     height: 260rpx;
     border-radius: 10rpx;
-}
+} 
 
 .items .item .stars{
   display: flex;
   flex-direction: row;
-  align-items: center; /* 上下居中*/
-  justify-content: center; /*左右居中*/
+  align-items: center; 
+  justify-content: center; 
 }
 
 .items .item .stars .star{
@@ -45,4 +45,4 @@
 
 .items .item .stars .scoreTitle{
   font-size: small;
-}
+} */

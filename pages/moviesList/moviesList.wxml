@@ -1,6 +1,9 @@
 
 <view class="items">
-      <view wx:for="{{ movies }}" wx:key="unique" wx:for-item="item" class="item">
+  <movie-item class="item" wx:for="{{ movies }}" wx:key="unique" wx:for-item="item" item="{{item}}">
+            
+  </movie-item>
+      <!-- <view wx:for="{{ movies }}" wx:key="unique" wx:for-item="item" class="item">
           <image class="picture" src="{{ item.item.cover_image_url }}"/>
           <view class="title">{{ item.item.title }}</view>
           <block wx:if="{{ item.item.rating > 0 }}"> 
@@ -18,7 +21,7 @@
           <block wx:else>
             暂无分数
           </block>
-      </view>
+      </view> -->
   </view>
 <view class="moviesListContainer">
   

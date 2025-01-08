@@ -22,6 +22,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
-
+    itemClick() {
+      const movieJsonString = encodeURIComponent(JSON.stringify(this.data.item));
+      // const movieJsonString = JSON.stringify(this.data.item)
+      wx.navigateTo({
+        url: `/pages/movieDetail/movieDetail?movie=${movieJsonString}`,
+        success: (result) => {},
+        fail: (res) => {},
+        complete: (res) => {},
+      })
+    }
   }
 })
