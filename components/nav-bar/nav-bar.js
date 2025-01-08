@@ -39,10 +39,12 @@ Component({
    */
   methods: {
     backClick() {
+      this.triggerEvent('backTap', { name: '123' })//传递出一个backTap事件，和一个对象
       wx.navigateBack()
     },
 
     homeClick() {
+      this.triggerEvent('homeTap', { name: '456' })//传递出一个homeTap事件，和一个对象
       wx.navigateBack({
         delta: 100
       })

@@ -1,5 +1,8 @@
 <nav-bar class="nav-bar" 
-      title="{{ title }}"></nav-bar>
+      title="{{ title }}"
+      bind:backTap="back"
+      bind:homeTap="home"
+      ></nav-bar>
 
 <view class="items">
   <movie-item class="item" wx:for="{{ movies }}" wx:key="unique" wx:for-item="item" item="{{item}}">

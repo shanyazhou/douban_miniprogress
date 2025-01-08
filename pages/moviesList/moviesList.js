@@ -29,4 +29,12 @@ Page({
     this.setData(this.data)
   },
 
+  back(evt, obj){
+    console.log(evt, obj)
+  },
+
+  home(evt, obj){
+    console.log(evt, obj)
+  }
+
 })
